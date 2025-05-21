@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.DashController">
+   <children>
+      <ImageView fitHeight="819.0" fitWidth="877.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="143.0" layoutY="437.0" prefHeight="15.0" prefWidth="51.0" text="\$4000" />
+      <Label layoutX="143.0" layoutY="454.0" prefHeight="15.0" prefWidth="51.0" text="\$1200" />
+      <Label layoutX="143.0" layoutY="470.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="64.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <Label layoutX="256.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <PieDemo1 layoutX="14.0" layoutY="161.0" prefHeight="137.0" prefWidth="169.0" />
+      <PieDemo1 layoutX="221.0" layoutY="161.0" prefHeight="122.0" prefWidth="149.0" />
+      <ScrollpaneGoodsView1 layoutX="439.0" layoutY="209.0" prefHeight="492.0" prefWidth="417.0" />
+      <Label layoutX="614.0" layoutY="103.0" prefHeight="15.0" prefWidth="40.0" text="\$1000" />
+      <Label layoutX="721.0" layoutY="103.0" prefHeight="15.0" prefWidth="40.0" text="\$1200" />
+      <Button layoutX="58.0" layoutY="657.0" mnemonicParsing="false" onAction="#learnmore" prefHeight="23.0" prefWidth="72.0" style="-fx-background-color: transparent;" />
+      <Button layoutX="292.0" layoutY="657.0" mnemonicParsing="false" onAction="#learnmore" prefHeight="23.0" prefWidth="72.0" style="-fx-background-color: transparent;" />
+      <Label layoutX="143.0" layoutY="529.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="143.0" layoutY="513.0" prefHeight="15.0" prefWidth="51.0" text="\$1200" />
+      <Label layoutX="143.0" layoutY="491.0" prefHeight="15.0" prefWidth="51.0" text="\$4000" />
+      <Label layoutX="143.0" layoutY="548.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="143.0" layoutY="566.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="143.0" layoutY="586.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="143.0" layoutY="606.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="143.0" layoutY="620.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="628.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="599.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="579.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="559.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="541.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="484.0" prefHeight="15.0" prefWidth="51.0" text="\$4000" />
+      <Label layoutX="349.0" layoutY="506.0" prefHeight="15.0" prefWidth="51.0" text="\$1200" />
+      <Label layoutX="349.0" layoutY="522.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="470.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+      <Label layoutX="349.0" layoutY="437.0" prefHeight="15.0" prefWidth="51.0" text="\$1200" />
+      <Label layoutX="349.0" layoutY="454.0" prefHeight="15.0" prefWidth="51.0" text="\$4000" />
+      <Label layoutX="349.0" layoutY="613.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
+   </children>
+</AnchorPane>

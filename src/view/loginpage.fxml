@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginpageController">
+   <children>
+      <ImageView fitHeight="560.0" fitWidth="939.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="usernameField" layoutX="564.0" layoutY="213.0" prefHeight="28.0" prefWidth="235.0" promptText="Enter your username" style="-fx-background-color: transparent;" />
+      <TextField fx:id="passwordField" layoutX="564.0" layoutY="273.0" prefHeight="28.0" prefWidth="235.0" promptText="Enter your password" style="-fx-background-color: transparent;" />
+      <Button layoutX="564.0" layoutY="347.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="235.0" style="-fx-background-color: transparent;" />
+   </children>
+</AnchorPane>
