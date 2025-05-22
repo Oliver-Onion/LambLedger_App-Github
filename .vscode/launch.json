@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch LambLedger",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "--module-path \"${workspaceFolder}/target/classes\" --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base",
+            "projectName": "LambLedger_App"
+        }
+    ]
+}

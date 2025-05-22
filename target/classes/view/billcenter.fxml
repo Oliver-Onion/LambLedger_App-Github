@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1060.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="731.0" fitWidth="1040.0" layoutY="1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/billcenter.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="93.0" layoutY="64.0" prefHeight="32.0" prefWidth="773.0" promptText="Search" style="-fx-background-color: transparent;" />
+      <CheckBox layoutX="78.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Bill Type A" />
+      <CheckBox layoutX="178.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Bill Type B" />
+      <CheckBox layoutX="282.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="earning" />
+      <CheckBox layoutX="382.0" layoutY="107.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="spending" />
+      <TextField layoutX="71.0" layoutY="148.0" prefHeight="32.0" prefWidth="97.0" promptText="YYYY-MM-DD" style="-fx-background-radius: 20;" />
+      <TextField layoutX="178.0" layoutY="148.0" prefHeight="32.0" prefWidth="97.0" promptText="YYYY-MM-DD" style="-fx-background-radius: 20;" />
+      <ComboBox layoutX="294.0" layoutY="148.0" prefHeight="32.0" prefWidth="142.0" promptText="Select Category" style="-fx-background-color: transparent;" />
+      <ScrollpaneGoodsView3 layoutX="43.0" layoutY="473.0" prefHeight="246.0" prefWidth="913.0" />
+   </children>
+</AnchorPane>

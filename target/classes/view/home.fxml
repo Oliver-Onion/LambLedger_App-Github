@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import com.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane fx:id="center" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="859.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+   <top>
+      <AnchorPane prefHeight="45.0" prefWidth="853.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="850.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/group.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="overview" layoutX="205.0" layoutY="8.0" mnemonicParsing="false" onAction="#overview" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="assets" layoutX="306.0" layoutY="8.0" mnemonicParsing="false" onAction="#assets" prefHeight="23.0" prefWidth="110.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="habits" layoutX="447.0" layoutY="8.0" mnemonicParsing="false" onAction="#habits" prefHeight="23.0" prefWidth="110.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="mine" layoutX="565.0" layoutY="8.0" mnemonicParsing="false" onAction="#mine" prefHeight="23.0" prefWidth="61.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="about" layoutX="646.0" layoutY="8.0" mnemonicParsing="false" onAction="#about" prefHeight="23.0" prefWidth="80.0" style="-fx-background-color: transparent;" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
