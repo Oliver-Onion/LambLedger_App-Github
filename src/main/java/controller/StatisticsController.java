@@ -55,6 +55,7 @@ public class StatisticsController implements Initializable {
 					Stage stage = new Stage();
 					stage.setTitle("导入预览");
 					stage.setScene(scene);
+					controller.setDialogStage(stage);  // 设置对话框Stage
 					stage.showAndWait();
 				} catch (IOException e) {
 					e.printStackTrace();

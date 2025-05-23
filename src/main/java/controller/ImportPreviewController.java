@@ -7,9 +7,7 @@ import javafx.stage.Stage;
 import model.Transaction;
 import service.CurrentUserService;
 
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class ImportPreviewController {
     @FXML
@@ -22,28 +20,31 @@ public class ImportPreviewController {
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
         updateTable();
-        setDialogStage(dialogStage);
     }
 
     private void updateTable() {
-        // 更新表格内容
+        previewTable.getItems().clear();  // 清空现有数据
+        if (transactions != null) {
+            previewTable.getItems().addAll(transactions);  // 添加新数据
+        }
     }
 
     @FXML
     void confirmImport() {
-        // 确认导入
         List<Transaction> transactions = previewTable.getItems();
         int userId = CurrentUserService.getCurrentUser().getId();
         TransactionDAO transactionDAO = new TransactionDAO();
         transactionDAO.saveAllTransactions(transactions, userId);
-        if (dialogStage != null) { // 先判空
-            dialogStage.close(); // 关闭窗口
+        if (dialogStage != null) {
+            dialogStage.close();
         }
     }
 
     @FXML
     void cancelImport() {
-        // 取消导入
+        if (dialogStage != null) {
+            dialogStage.close();
+        }
     }
 
     public void setDialogStage(Stage dialogStage) {

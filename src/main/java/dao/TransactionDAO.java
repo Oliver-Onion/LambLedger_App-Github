@@ -14,10 +14,12 @@ public class TransactionDAO {
     public void saveAllTransactions(List<Transaction> transactions, int userId) {
         try (FileWriter writer = new FileWriter(TRANSACTIONS_FILE, true)) {
             for (Transaction transaction : transactions) {
-                writer.append(String.format("%d,%s,%s,%s,%s,%.2f,%s,%s,%s,%s,%s,%d\n",
+                writer.append(String.format("%d,%s,%s,%s,%s,%s,%s,%.2f,%s,%s,%s,%s,%s\n",
                         userId,
                         transaction.getTransactionTime(),
                         transaction.getTransactionType(),
+                        transaction.getPrimaryCategory(),
+                        transaction.getSecondaryCategory(),
                         transaction.getCounterparty(),
                         transaction.getCommodityDescription(),
                         transaction.getAmount(),

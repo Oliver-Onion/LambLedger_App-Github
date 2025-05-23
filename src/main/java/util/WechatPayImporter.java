@@ -2,7 +2,6 @@ package util;
 
 import dao.TransactionDAO;
 import model.Transaction;
-import util.TransactionClassifier;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -61,8 +60,7 @@ public class WechatPayImporter {
                         transaction.setNotes(data[10]);
 
                         // 调用 classifyTransaction 方法对交易进行分类
-                        String category = TransactionClassifier.classifyTransaction(transaction);
-                        transaction.setTransactionCategory(category);
+                        TransactionClassifier.classifyTransaction(transaction);
 
                         transactions.add(transaction);
                         transactionDAO.importTransaction(transaction, userId);
@@ -81,7 +79,7 @@ public class WechatPayImporter {
                         t.getTransactionType(),
                         t.getCounterparty(),
                         t.getAmount(),
-                        t.getTransactionCategory()
+                        t.getPrimaryCategory()
                 );
             }
             return true;

@@ -1,0 +1,49 @@
+{
+    "categories": [
+      {
+        "name": "餐饮",
+        "type": "expense",
+        "children": ["餐食", "饮品", "水果", "零食"]
+      },
+      {
+        "name": "交通",
+        "type": "expense",
+        "children": ["公交", "地铁", "出租车", "私家车"]
+      },
+      {
+        "name": "生活",
+        "type": "expense",
+        "children": ["日用品", "衣物", "家居", "电器", "数码", "书籍", "文具", "玩具", "其他"]
+      },
+      {
+        "name": "娱乐",
+        "type": "expense",
+        "children": ["电影", "旅游", "其他"]
+      },
+      {
+        "name": "住房",
+        "type": "expense",
+        "children": ["房租", "物业费", "水费", "电费", "燃气费"]
+      },
+      {
+        "name": "其他支出",
+        "type": "expense",
+        "children": ["礼品支出", "其他支出"]
+      },
+      {
+        "name": "工资",
+        "type": "income",
+        "children": ["工资", "奖金"]
+      },
+      {
+        "name": "投资",
+        "type": "income",
+        "children": ["股票", "基金", "债券"]
+      },
+      {
+        "name": "其他收入",
+        "type": "income",
+        "children": ["礼品收入", "其他收入"]
+      }
+    ]
+}

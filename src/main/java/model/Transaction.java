@@ -15,7 +15,8 @@ public class Transaction {
     private String transactionOrderNumber; // 交易订单号
     private String merchantOrderNumber; // 商家订单号
     private String notes; // 备注
-    private String category;
+    private String primaryCategory;
+    private String secondaryCategory;
 
     // Getters and Setters
     public LocalDateTime getTransactionTime() {
@@ -114,11 +115,16 @@ public class Transaction {
         this.notes = notes;
     }
 
-    public String getTransactionCategory() {
-        return category;
+    public String getPrimaryCategory() {
+        return primaryCategory;
     }
 
-    public void setTransactionCategory(String category) {
-        this.category = category;
+    public void setPrimaryCategory(String primaryCategory) {
+        this.primaryCategory = primaryCategory;
     }
+
+    public String getSecondaryCategory() {return secondaryCategory;}
+
+    public void setSecondaryCategory(String secondaryCategory) {this.secondaryCategory = secondaryCategory;}
+
 }

@@ -2,16 +2,61 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.ImportPreviewController">
     <TableView fx:id="previewTable">
         <columns>
-            <TableColumn text="交易时间" />
-            <TableColumn text="交易类型" />
-            <TableColumn text="交易对方" />
-            <TableColumn text="商品说明" />
-            <TableColumn text="金额" />
-            <TableColumn text="交易状态" />
+            <TableColumn text="交易时间" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="transactionTime" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="交易类型" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="transactionType" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="一级分类" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="primaryCategory" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="二级分类" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="secondaryCategory" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="交易对方" prefWidth="120">
+                <cellValueFactory>
+                    <PropertyValueFactory property="counterparty" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="商品说明" prefWidth="200">
+                <cellValueFactory>
+                    <PropertyValueFactory property="commodityDescription" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="收/支" prefWidth="80">
+                <cellValueFactory>
+                    <PropertyValueFactory property="transactionDirection" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="金额" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="amount" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="支付方式" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="paymentMethod" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="交易状态" prefWidth="100">
+                <cellValueFactory>
+                    <PropertyValueFactory property="transactionStatus" />
+                </cellValueFactory>
+            </TableColumn>
         </columns>
     </TableView>
     <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-padding: 10;">
