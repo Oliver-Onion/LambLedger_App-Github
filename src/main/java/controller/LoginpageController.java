@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 import service.CurrentUserService;
 import service.TransactionManager;
@@ -28,7 +29,7 @@ public class LoginpageController implements Initializable {
 	private TextField usernameField;
 
 	@FXML
-	private TextField passwordField;
+	private PasswordField passwordField;
 
 	private List<User> users = new ArrayList<>();
 
@@ -54,9 +55,6 @@ public class LoginpageController implements Initializable {
 					user.setPassword(data[2]);
 					user.setEmail(data[3]);
 					user.setPhone(data[4]);
-					DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
-					user.setCreatedAt(LocalDateTime.parse(data[5], formatter));
-					user.setUpdatedAt(LocalDateTime.parse(data[6], formatter));
 					users.add(user);
 				}
 			}
@@ -86,7 +84,7 @@ public class LoginpageController implements Initializable {
 				CurrentUserService.setCurrentUser(user); // 设置当前用户
 				TransactionManager.getInstance().loadTransactions();
 				try {
-					Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../view/home.fxml")));
+					Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/home.fxml")));
 					AppInitializer.getPrimaryStage().setScene(scene);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -107,5 +105,15 @@ public class LoginpageController implements Initializable {
 		alert.setHeaderText(header);
 		alert.setContentText(content);
 		alert.showAndWait();
+	}
+
+	public void signUp() {
+		try {
+			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/signup.fxml")));
+			AppInitializer.getPrimaryStage().setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+			showAlert(Alert.AlertType.ERROR, "Error", "Navigation Error", "Could not load the signup screen.");
+		}
 	}
 }

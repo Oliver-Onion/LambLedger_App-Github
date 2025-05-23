@@ -36,7 +36,6 @@ public class UserManager {
                 existingUser.setPassword(user.getPassword());
                 existingUser.setEmail(user.getEmail());
                 existingUser.setPhone(user.getPhone());
-                existingUser.setUpdatedAt(LocalDateTime.now());
                 userFound = true;
                 break;
             }
@@ -45,8 +44,6 @@ public class UserManager {
         // 如果用户是新用户，则添加到列表中
         if (!userFound) {
             user.setId(users.isEmpty() ? 1 : users.get(users.size() - 1).getId() + 1);
-            user.setCreatedAt(LocalDateTime.now());
-            user.setUpdatedAt(LocalDateTime.now());
             users.add(user);
         }
 
@@ -57,9 +54,7 @@ public class UserManager {
                         u.getUsername(),
                         u.getPassword(),
                         u.getEmail(),
-                        u.getPhone(),
-                        u.getCreatedAt(),
-                        u.getUpdatedAt()));
+                        u.getPhone()));
             }
             return true;
         } catch (IOException e) {
@@ -91,8 +86,6 @@ public class UserManager {
         user.setPassword(data[2]);
         user.setEmail(data[3]);
         user.setPhone(data[4]);
-        user.setCreatedAt(LocalDateTime.parse(data[5]));
-        user.setUpdatedAt(LocalDateTime.parse(data[6]));
         return user;
     }
 }

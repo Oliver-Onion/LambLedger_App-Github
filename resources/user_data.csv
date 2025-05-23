@@ -1,3 +1,4 @@
-﻿id,username,password,email,phone,createdAt,updatedAt
-1,admin,password,admin@example.com,1234567890,2023-10-01T12:00:00,2023-10-01T12:00:00
-2,user1,pass1,user1@example.com,9876543210,2023-10-02T13:00:00,2023-10-02T13:00:00
+﻿id,username,password,email,phone
+1,admin,password,admin@example.com,1234567890
+2,user1,pass1,user1@example.com,9876543210
+3,oliver,ABC123,22@qq.com,18668249158
