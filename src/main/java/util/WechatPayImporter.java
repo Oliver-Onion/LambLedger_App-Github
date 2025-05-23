@@ -19,6 +19,43 @@ public class WechatPayImporter {
         this.transactionDAO = transactionDAO;
     }
 
+    // 添加辅助方法来格式化日期字符串
+    private String padDateTimeString(String dateStr) {
+        if (dateStr == null || dateStr.trim().isEmpty()) {
+            return dateStr;
+        }
+        
+        // 分割日期和时间
+        String[] parts = dateStr.split("\\s+");
+        if (parts.length != 2) {
+            return dateStr;
+        }
+
+        // 处理日期部分
+        String[] dateParts = parts[0].split("/");
+        if (dateParts.length != 3) {
+            return dateStr;
+        }
+
+        // 补充年月日
+        String year = dateParts[0];
+        String month = dateParts[1].length() == 1 ? "0" + dateParts[1] : dateParts[1];
+        String day = dateParts[2].length() == 1 ? "0" + dateParts[2] : dateParts[2];
+
+        // 处理时间部分
+        String[] timeParts = parts[1].split(":");
+        if (timeParts.length != 2) {
+            return dateStr;
+        }
+
+        // 补充时分
+        String hour = timeParts[0].length() == 1 ? "0" + timeParts[0] : timeParts[0];
+        String minute = timeParts[1].length() == 1 ? "0" + timeParts[1] : timeParts[1];
+
+        // 返回格式化后的字符串
+        return String.format("%s/%s/%s %s:%s", year, month, day, hour, minute);
+    }
+
     public boolean importWechatPayCSV(String filePath, int userId) {
         newTransactions.clear(); // 清空之前的记录
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -32,9 +69,10 @@ public class WechatPayImporter {
                     // 修改日期时间格式
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
                     try {
-                        // 增加空值检查
-                        if (data[0] != null &&!data[0].trim().isEmpty()) {
-                            transaction.setTransactionTime(LocalDateTime.parse(data[0], formatter));
+                        // 增加空值检查并格式化日期字符串
+                        if (data[0] != null && !data[0].trim().isEmpty()) {
+                            String formattedDateTime = padDateTimeString(data[0]);
+                            transaction.setTransactionTime(LocalDateTime.parse(formattedDateTime, formatter));
                         }
                     } catch (Exception e) {
                         System.err.println("日期解析错误: " + data[0] + "，错误信息: " + e.getMessage());
