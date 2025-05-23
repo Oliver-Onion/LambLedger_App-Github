@@ -39,7 +39,7 @@
             </TableColumn>
             <TableColumn text="收/支" prefWidth="80">
                 <cellValueFactory>
-                    <PropertyValueFactory property="transactionDirection" />
+                    <PropertyValueFactory property="transactionDirectionString" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn text="金额" prefWidth="100">

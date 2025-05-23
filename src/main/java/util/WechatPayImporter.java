@@ -13,14 +13,14 @@ import java.util.List;
 
 public class WechatPayImporter {
     private TransactionDAO transactionDAO;
-    private List<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> newTransactions = new ArrayList<>();
 
     public WechatPayImporter(TransactionDAO transactionDAO) {
         this.transactionDAO = transactionDAO;
     }
 
     public boolean importWechatPayCSV(String filePath, int userId) {
-        transactions.clear(); // 清空之前的记录
+        newTransactions.clear(); // 清空之前的记录
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             // 跳过标题行
@@ -44,7 +44,18 @@ public class WechatPayImporter {
                         transaction.setTransactionType(data[1]);
                         transaction.setCounterparty(data[2]);
                         transaction.setCommodityDescription(data[3]);
-                        transaction.setTransactionDirection(data[4]);
+                        // 根据收/支字段设置对应的整数值
+                        String direction = data[4];
+                        if (direction.contains("收")) {
+                            transaction.setTransactionDirection(1);
+                            transaction.setTransactionDirectionString("Income");
+                        } else if (direction.contains("支")) {
+                            transaction.setTransactionDirection(-1);
+                            transaction.setTransactionDirectionString("Expense");
+                        } else {
+                            transaction.setTransactionDirection(0);
+                            transaction.setTransactionDirectionString("Other");
+                        }
                         // 增加数字解析的异常处理，去除人民币符号
                         try {
                             String amountStr = data[5].replace("¥", "");
@@ -62,8 +73,7 @@ public class WechatPayImporter {
                         // 调用 classifyTransaction 方法对交易进行分类
                         TransactionClassifier.classifyTransaction(transaction);
 
-                        transactions.add(transaction);
-                        transactionDAO.importTransaction(transaction, userId);
+                        newTransactions.add(transaction);
                     } catch (Exception e) {
                         System.err.println("数据解析错误: " + line + "，错误信息: " + e.getMessage());
                     }
@@ -76,7 +86,7 @@ public class WechatPayImporter {
         }
     }
 
-    public List<Transaction> getTransactions() {
-        return transactions;
+    public List<Transaction> getNewTransactions() {
+        return newTransactions;
     }
 }

@@ -17,12 +17,12 @@
       <Label layoutX="143.0" layoutY="437.0" prefHeight="15.0" prefWidth="51.0" text="\$4000" />
       <Label layoutX="143.0" layoutY="454.0" prefHeight="15.0" prefWidth="51.0" text="\$1200" />
       <Label layoutX="143.0" layoutY="470.0" prefHeight="15.0" prefWidth="51.0" text="\$800" />
-      <Label layoutX="64.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
+      <Label fx:id="totalIncomeLabel" layoutX="64.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Label layoutX="256.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
+      <Label fx:id="totalExpenseLabel" layoutX="256.0" layoutY="51.0" prefHeight="44.0" prefWidth="130.0" text="10000">
          <font>
             <Font size="34.0" />
          </font>

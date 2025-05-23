@@ -6,6 +6,7 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import model.Transaction;
 import service.CurrentUserService;
+import service.TransactionManager;
 
 import java.util.List;
 
@@ -32,9 +33,7 @@ public class ImportPreviewController {
     @FXML
     void confirmImport() {
         List<Transaction> transactions = previewTable.getItems();
-        int userId = CurrentUserService.getCurrentUser().getId();
-        TransactionDAO transactionDAO = new TransactionDAO();
-        transactionDAO.saveAllTransactions(transactions, userId);
+        TransactionManager.getInstance().addTransactions(transactions);
         if (dialogStage != null) {
             dialogStage.close();
         }

@@ -15,12 +15,15 @@ import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.CurrentUserService;
+import service.TransactionManager;
 import util.WechatPayImporter;
 
 public class StatisticsController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// 初始化时加载交易数据
+		TransactionManager.getInstance().loadTransactions();
 	}
 
 	@FXML
@@ -50,7 +53,7 @@ public class StatisticsController implements Initializable {
 					FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/preview.fxml"));
 					Parent root = loader.load();
 					ImportPreviewController controller = loader.getController();
-					controller.setTransactions(importer.getTransactions());
+					controller.setTransactions(importer.getNewTransactions());
 					Scene scene = new Scene(root);
 					Stage stage = new Stage();
 					stage.setTitle("导入预览");

@@ -20,6 +20,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import service.CurrentUserService;
+import service.TransactionManager;
 
 public class LoginpageController implements Initializable {
 
@@ -83,6 +84,7 @@ public class LoginpageController implements Initializable {
 				isValidUser = true;
 				showAlert(Alert.AlertType.INFORMATION, "Login Success", "Welcome", "Login successful!");
 				CurrentUserService.setCurrentUser(user); // 设置当前用户
+				TransactionManager.getInstance().loadTransactions();
 				try {
 					Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../view/home.fxml")));
 					AppInitializer.getPrimaryStage().setScene(scene);

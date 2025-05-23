@@ -8,7 +8,8 @@ public class Transaction {
     private String counterparty; // 交易对方
     private String counterpartyAccount; // 对方账号
     private String commodityDescription; // 商品/商品说明
-    private String transactionDirection; // 收/支
+    private Integer transactionDirection; // 1:收入, -1:支出, 0:其他
+    private String transactionDirectionString; // 收/支
     private Double amount; // 金额
     private String paymentMethod; // 支付方式/收/付款方式
     private String transactionStatus; // 交易状态/当前状态
@@ -59,12 +60,20 @@ public class Transaction {
         this.commodityDescription = commodityDescription;
     }
 
-    public String getTransactionDirection() {
+    public Integer getTransactionDirection() {
         return transactionDirection;
     }
 
-    public void setTransactionDirection(String transactionDirection) {
+    public void setTransactionDirection(Integer transactionDirection) {
         this.transactionDirection = transactionDirection;
+    }
+
+    public String getTransactionDirectionString() {
+        return transactionDirectionString;
+    }
+
+    public void setTransactionDirectionString(String transactionDirectionString) {
+        this.transactionDirectionString = transactionDirectionString;
     }
 
     public Double getAmount() {

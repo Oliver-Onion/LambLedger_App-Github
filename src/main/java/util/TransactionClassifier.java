@@ -54,7 +54,7 @@ public class TransactionClassifier {
      */
     private static void printClassificationResult(Transaction transaction, String method) {
         System.out.println("Method: " + method);
-        System.out.println("Details:" + transaction.getCounterparty() + " " + transaction.getCommodityDescription() + " " + transaction.getTransactionDirection());
+        System.out.println("Details:" + transaction.getCounterparty() + " " + transaction.getCommodityDescription() + " " + transaction.getTransactionDirectionString());
         System.out.println("Classification Result:" + transaction.getPrimaryCategory() + " " + transaction.getSecondaryCategory());
     }
 
@@ -62,8 +62,8 @@ public class TransactionClassifier {
      * 设置默认分类
      */
     private static void setDefaultCategory(Transaction transaction) {
-        String direction = transaction.getTransactionDirection();
-        if (direction != null && direction.contains("收")) {
+        Integer direction = transaction.getTransactionDirection();
+        if (direction != null && direction > 0) {
             transaction.setPrimaryCategory("Other Incomes");
             transaction.setSecondaryCategory("Other Incomes");
         } else {
