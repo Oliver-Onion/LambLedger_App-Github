@@ -48,14 +48,16 @@ public class LoginpageController implements Initializable {
 			br.readLine();
 			while ((line = br.readLine()) != null) {
 				String[] data = line.split(",");
-				if (data.length == 7) {
+				if (data.length == 6) {
 					User user = new User();
 					user.setId(Integer.parseInt(data[0]));
 					user.setUsername(data[1]);
 					user.setPassword(data[2]);
 					user.setEmail(data[3]);
 					user.setPhone(data[4]);
+					user.setMoney(Double.parseDouble(data[5]));
 					users.add(user);
+					System.out.println(user);
 				}
 			}
 		} catch (IOException e) {

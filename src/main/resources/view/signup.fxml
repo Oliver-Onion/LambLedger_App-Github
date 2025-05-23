@@ -23,6 +23,9 @@
 
         <Label text="Phone:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
         <TextField fx:id="phoneField" promptText="Enter phone number" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Initial Money:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="moneyField" promptText="Enter initial amount (e.g. 1000.00)" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
     </GridPane>
 
     <HBox spacing="10" alignment="CENTER">

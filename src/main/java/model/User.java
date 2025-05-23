@@ -6,6 +6,7 @@ public class User {
     private String password;
     private String email;
     private String phone;
+    private double money;
 
     // Getters and Setters
     public int getId() {
@@ -46,5 +47,24 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", money=" + money +
+                '}';
     }
 }

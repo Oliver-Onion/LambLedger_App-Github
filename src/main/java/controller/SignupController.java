@@ -22,6 +22,8 @@ public class SignupController {
     private TextField emailField;
     @FXML
     private TextField phoneField;
+    @FXML
+    private TextField moneyField;
 
     private List<User> existingUsers = new ArrayList<>();
     private static final String USER_DATA_FILE = "./resources/user_data.csv";
@@ -58,9 +60,21 @@ public class SignupController {
         String password = passwordField.getText().trim();
         String email = emailField.getText().trim();
         String phone = phoneField.getText().trim();
+        String moneyStr = moneyField.getText().trim();
 
         // Validation
-        if (!validateInputs(username, password, email, phone)) {
+        if (!validateInputs(username, password, email, phone, moneyStr)) {
+            return;
+        }
+
+        double money;
+        try {
+            money = Double.parseDouble(moneyStr);
+            // Round to 2 decimal places
+            money = Math.round(money * 100.0) / 100.0;
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Money Format", 
+                     "Please enter a valid number for initial money.");
             return;
         }
 
@@ -79,40 +93,66 @@ public class SignupController {
         newUser.setPassword(password);
         newUser.setEmail(email);
         newUser.setPhone(phone);
+        newUser.setMoney(money);
 
         // Save to file
         saveNewUser(newUser);
 
         // Show success message and return to login
-        showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Successful", "You can now login with your credentials.");
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Registration Successful", 
+                 "You can now login with your credentials.");
         backToLogin();
     }
 
-    private boolean validateInputs(String username, String password, String email, String phone) {
-        if (username.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+    private boolean validateInputs(String username, String password, String email, String phone, String money) {
+        if (username.isEmpty() || password.isEmpty() || email.isEmpty() || phone.isEmpty() || money.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Validation Error", "Empty Fields", "All fields must be filled.");
             return false;
         }
 
         if (username.length() < 3 || username.length() > 20) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Username", "Username must be between 3 and 20 characters.");
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Username", 
+                     "Username must be between 3 and 20 characters.");
             return false;
         }
 
         if (password.length() < 6) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Password", "Password must be at least 6 characters long.");
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Password", 
+                     "Password must be at least 6 characters long.");
             return false;
         }
 
         String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
         if (!Pattern.matches(emailRegex, email)) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Email", "Please enter a valid email address.");
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Email", 
+                     "Please enter a valid email address.");
             return false;
         }
 
         String phoneRegex = "^\\d{10,11}$";
         if (!Pattern.matches(phoneRegex, phone)) {
-            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Phone", "Please enter a valid phone number (10-11 digits).");
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Phone", 
+                     "Please enter a valid phone number (10-11 digits).");
+            return false;
+        }
+
+        try {
+            double moneyValue = Double.parseDouble(money);
+            if (moneyValue < 0) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Money Amount", 
+                         "Initial money cannot be negative.");
+                return false;
+            }
+            // Check if it has more than 2 decimal places
+            String[] parts = money.split("\\.");
+            if (parts.length > 1 && parts[1].length() > 2) {
+                showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Money Format", 
+                         "Money can only have up to 2 decimal places.");
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Validation Error", "Invalid Money Format", 
+                     "Please enter a valid number for initial money.");
             return false;
         }
 
@@ -148,12 +188,13 @@ public class SignupController {
         try (FileWriter fw = new FileWriter(USER_DATA_FILE, true);
              BufferedWriter bw = new BufferedWriter(fw)) {
             
-            String newLine = String.format("%d,%s,%s,%s,%s%n",
+            String newLine = String.format("%d,%s,%s,%s,%s,%.2f%n",
                     user.getId(),
                     user.getUsername(),
                     user.getPassword(),
                     user.getEmail(),
-                    user.getPhone());
+                    user.getPhone(),
+                    user.getMoney());
             
             bw.write(newLine);
             

@@ -1,4 +1,4 @@
-﻿id,username,password,email,phone
-1,admin,password,admin@example.com,1234567890
-2,user1,pass1,user1@example.com,9876543210
-3,oliver,ABC123,22@qq.com,18668249158
+﻿id,username,password,email,phone,initial money
+1,admin,password,admin@example.com,1234567890,1000
+2,user1,pass1,user1@example.com,9876543210,2000
+3,oliver,ABC123,22@qq.com,18668249158,649.5
