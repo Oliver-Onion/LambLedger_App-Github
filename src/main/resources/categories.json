@@ -1,0 +1,92 @@
+{
+    "categories": [
+        {
+            "name": "Catering",
+            "type": "expense",
+            "children": [
+                "Meals",
+                "Beverages",
+                "Fruits",
+                "Snacks"
+            ]
+        },
+        {
+            "name": "Transportation",
+            "type": "expense",
+            "children": [
+                "Bus",
+                "Subway",
+                "Taxi",
+                "Private Car"
+            ]
+        },
+        {
+            "name": "Daily Life",
+            "type": "expense",
+            "children": [
+                "Daily Necessities",
+                "Clothing",
+                "Home Furnishings",
+                "Appliances",
+                "Digital Products",
+                "Books",
+                "Stationery",
+                "Toys",
+                "Others"
+            ]
+        },
+        {
+            "name": "Entertainment",
+            "type": "expense",
+            "children": [
+                "Movies",
+                "Travel",
+                "Others"
+            ]
+        },
+        {
+            "name": "Housing",
+            "type": "expense",
+            "children": [
+                "Rent",
+                "Property Management Fees",
+                "Water Fee",
+                "Electricity Fee",
+                "Gas Fee"
+            ]
+        },
+        {
+            "name": "Other Expenses",
+            "type": "expense",
+            "children": [
+                "Gift Expenses",
+                "Other Expenses"
+            ]
+        },
+        {
+            "name": "Salary",
+            "type": "income",
+            "children": [
+                "Salary",
+                "Bonus"
+            ]
+        },
+        {
+            "name": "Investment",
+            "type": "income",
+            "children": [
+                "Stocks",
+                "Funds",
+                "Bonds"
+            ]
+        },
+        {
+            "name": "Other Incomes",
+            "type": "income",
+            "children": [
+                "Gift Incomes",
+                "Other Incomes"
+            ]
+        }
+    ]
+} 
