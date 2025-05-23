@@ -69,19 +69,6 @@ public class WechatPayImporter {
                     }
                 }
             }
-            System.out.println("\n=== 导入的交易记录 ===");
-            System.out.println("序号\t时间\t\t\t类型\t对方\t\t金额\t分类");
-            for (int i = 0; i < transactions.size(); i++) {
-                Transaction t = transactions.get(i);
-                System.out.printf("%d\t%s\t%s\t%s\t%.2f\t%s%n",
-                        i + 1,
-                        t.getTransactionTime(),
-                        t.getTransactionType(),
-                        t.getCounterparty(),
-                        t.getAmount(),
-                        t.getPrimaryCategory()
-                );
-            }
             return true;
         } catch (IOException e) {
             e.printStackTrace();
