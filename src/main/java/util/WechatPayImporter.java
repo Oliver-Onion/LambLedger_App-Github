@@ -30,7 +30,7 @@ public class WechatPayImporter {
                 if (data.length >= 11) {
                     Transaction transaction = new Transaction();
                     // 修改日期时间格式
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/M/dd HH:mm");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
                     try {
                         // 增加空值检查
                         if (data[0] != null &&!data[0].trim().isEmpty()) {
