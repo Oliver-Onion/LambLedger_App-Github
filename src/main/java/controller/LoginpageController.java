@@ -57,7 +57,6 @@ public class LoginpageController implements Initializable {
 					user.setPhone(data[4]);
 					user.setMoney(Double.parseDouble(data[5]));
 					users.add(user);
-					System.out.println(user);
 				}
 			}
 		} catch (IOException e) {

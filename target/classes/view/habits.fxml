@@ -24,5 +24,14 @@
       <ListView fx:id="list1" layoutX="597.0" layoutY="289.0" prefHeight="88.0" prefWidth="186.0" style="-fx-background-color: transparent;" />
       <ListView fx:id="list2" layoutX="601.0" layoutY="438.0" prefHeight="88.0" prefWidth="186.0" style="-fx-background-color: transparent;" />
       <ListView fx:id="list3" layoutX="601.0" layoutY="577.0" prefHeight="94.0" prefWidth="186.0" style="-fx-background-color: transparent;" />
+      
+      <!-- AI Analysis Section -->
+      <TextArea fx:id="aiResponseArea" layoutX="20.0" layoutY="550.0" prefHeight="150.0" prefWidth="520.0" wrapText="true" editable="false"/>
+      
+
+      <Button fx:id="suggestBudgetButton" layoutX="30.0" layoutY="713.5" prefHeight="25.0" prefWidth="140.0" onAction="#handleSuggestBudget" style="-fx-background-color: transparent;"/>
+      <Button fx:id="suggestSavingsButton" layoutX="203.0" layoutY="713.5" prefHeight="25.0" prefWidth="140.0" onAction="#handleSuggestSavings" style="-fx-background-color: transparent;"/>
+      <Button fx:id="suggestReductionButton" layoutX="375.0" layoutY="713.5" prefHeight="25.0" prefWidth="140.0" onAction="#handleSuggestReduction" style="-fx-background-color: transparent;"/>
+
    </children>
 </AnchorPane>
