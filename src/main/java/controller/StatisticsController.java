@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import service.CurrentUserService;
@@ -21,10 +22,25 @@ import controller.ImportPreviewController;
 
 public class StatisticsController implements Initializable {
 
+	@FXML
+	private Label totalIncomeLabel;
+	
+	@FXML
+	private Label totalExpenseLabel;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 初始化时加载交易数据
-		TransactionManager.getInstance().loadTransactions();
+		TransactionManager transactionManager = TransactionManager.getInstance();
+		transactionManager.loadTransactions();
+		
+		// 获取总收入和总支出
+		double totalIncome = transactionManager.getAnalyzer().getTotalIncome();
+		double totalExpense = transactionManager.getAnalyzer().getTotalExpense();
+		
+		// 更新标签显示
+		totalIncomeLabel.setText(String.format("￥%.2f", totalIncome));
+		totalExpenseLabel.setText(String.format("￥%.2f", totalExpense));
 	}
 
 	@FXML

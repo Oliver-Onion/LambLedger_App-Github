@@ -48,18 +48,18 @@
       <Button layoutX="52.0" layoutY="681.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="361.0" style="-fx-background-color: transparent;" />
       <Button onAction="#onImportTableClick" layoutX="472.0" layoutY="681.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="361.0" style="-fx-background-color: transparent;" />
       <TextField layoutX="464.0" layoutY="635.0" prefHeight="40.0" prefWidth="361.0" promptText="Enter csv folder /  document" style="-fx-background-color: transparent;" />
-      <Label layoutX="505.0" layoutY="199.0" prefHeight="20.0" prefWidth="80.0" text="2027.00">
+      <Label fx:id="totalIncomeLabel" layoutX="505.0" layoutY="199.0" prefHeight="20.0" prefWidth="80.0" text="0.00">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="722.0" layoutY="199.0" prefHeight="20.0" prefWidth="80.0" text="2022.00">
+      <Label fx:id="totalExpenseLabel" layoutX="722.0" layoutY="199.0" prefHeight="20.0" prefWidth="80.0" text="0.00">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <ScrollpaneGoodsView2 layoutX="446.0" layoutY="271.0" prefHeight="300.0" prefWidth="199.0" />
-      <ScrollpaneGoodsView2 layoutX="653.0" layoutY="278.0" prefHeight="300.0" prefWidth="199.0" />
+      <ScrollpaneGoodsViewIncome layoutX="446.0" layoutY="271.0" prefHeight="300.0" prefWidth="199.0" />
+      <ScrollpaneGoodsViewExpense layoutX="653.0" layoutY="271.0" prefHeight="300.0" prefWidth="199.0" />
       <Button layoutX="722.0" layoutY="67.0" mnemonicParsing="false" onAction="#billcenter" prefHeight="28.0" prefWidth="90.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

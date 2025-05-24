@@ -15,5 +15,13 @@ public class BillCenterController implements Initializable {
 		
 	}
 	
-
+	@FXML
+	void backToStatistics() {
+		try {
+			Scene scene = new Scene(FXMLLoader.load(getClass().getResource("../view/statistics.fxml")));
+			AppInitializer.getPrimaryStage().setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
